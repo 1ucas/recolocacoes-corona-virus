@@ -1,0 +1,12 @@
+{
+    "_comment" : "Este campo e os próximos com o sinal _ são apenas para explicação e não devem ser replicados",
+    "_sobre" : "A ideia é ser o mais simples possível, DE = DEV,  AQ = Arquiteto, CL = Chapter Lead, TL = Tech Lead, PO = PO, Etc",
+    "_separacao" : "O primeiro número é a categoria global e o segundo é o foco / especialização",
+    "_senioridade" : "Um número que deve ser colocado por cada pessoa em seus dados. Sendo, 0 - N/A, 1 - júnior, 2 - pleno, 3 - sênior, 4 - master / especialista",
+    "DE-1-0" : "Desenvolvedor Frontend - Angular",
+    "DE-1-1" : "Desenvolvedor Frontend - React",
+    "DE-2-0" : "Desenvolvedor Backend - Java Spring",
+    "DE-3-0" : "Desenvolvedor Mobile - iOS",
+    "AQ-1-1" : "Arquiteto de Software / Soluções - Frontend",
+    "PO-1-0" : "PO - ??? (help)"    
+}
