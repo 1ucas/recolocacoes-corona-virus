@@ -1,0 +1,14 @@
+{
+  "name": "recolocacoes-api",
+  "version": "1.0.0",
+  "description": "Simples interface para facilitar a página principal consultar os dados em disco",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "1ucas",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
