@@ -7,5 +7,21 @@ $(document).ready(function () {
 });
 
 function carregarTodosDados() {
+
+    $.getJSON("http://localhost:3000/dados", function(result){
+        exibirAlertaSucesso()
+    })
+    .fail(function() {
+        exibirAlertaError()
+    })
+
     
+}
+
+function exibirAlertaSucesso() {
+    $("#alerta-sucesso").show()
+}
+
+function exibirAlertaError() {
+    $("#alerta-erro").show()
 }
