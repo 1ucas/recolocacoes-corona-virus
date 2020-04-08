@@ -31,8 +31,9 @@
             <div class="dropdown">
                 <div class="row">
                     <div class="col-6">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCidadesMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cidades
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCidadesMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cidades
                         </button>
                         <div id="lista-cidades" class="dropdown-menu" aria-labelledby="dropdownCidadesMenuButton"></div>
                     </div>
@@ -46,10 +47,12 @@
             <div class="dropdown">
                 <div class="row">
                     <div class="col-6">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownEmpresasMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Empresas
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownEmpresasMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Empresas
                         </button>
-                        <div id="lista-empresas" class="dropdown-menu" aria-labelledby="dropdownEmpresasMenuButton"></div>
+                        <div id="lista-empresas" class="dropdown-menu" aria-labelledby="dropdownEmpresasMenuButton">
+                        </div>
                     </div>
                     <div class="col-6">
                         <label id="lbl-empresa-escolhida" for="dropdownEmpresasMenuButton"></label>
@@ -58,6 +61,25 @@
             </div>
         </div>
     </div>
+
+    <table id="tabela-profissionais" class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Cargo</th>
+                <th scope="col">Senioridade</th>
+                <th scope="col">Linkedin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lucas</td>
+                <td>DEV TESTE</td>
+                <td>JUNIOR</td>
+                <td><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/lucas-ramos-maciel/">https://www.linkedin.com/in/lucas-ramos-maciel/</a></td>
+            </tr>
+        </tbody>
+    </table>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

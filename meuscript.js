@@ -30,10 +30,13 @@ function carregarTodosDados() {
 
         $(".item-cidade").on('click' , function(item){
             $("#lbl-cidade-escolhida").text(item.target.innerText);
+            $("#lbl-empresa-escolhida").text("");
+            $("#tabela-profissionais").hide()
         });
 
         $(".item-empresa").on('click' , function(item){
             $("#lbl-empresa-escolhida").text(item.target.innerText);
+            $("#tabela-profissionais").show()
         });
 
         exibirAlertaError()
