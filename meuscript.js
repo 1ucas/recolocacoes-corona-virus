@@ -24,9 +24,24 @@ function carregarTodosDados() {
         },{
             "nome" : "Empresa Y"
         }]
+
+        let resultadoFuncionariosMock = [{
+            "nome": "Joao Exemplo",
+            "posicao": "DE-2-0",
+            "senioridade": 2,
+            "lidera_equipe" : true,
+            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
+        },{
+            "nome": "Lucas Exemplo",
+            "posicao": "AQ-1-1",
+            "senioridade": 2,
+            "lidera_equipe" : false,
+            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
+        }]
         
         preencherListaCidades(resultadoCidadesMock)
         preencherListaEmpresas(resultadoEmpresasMock)
+        preencherTabelaFuncionarios(resultadoFuncionariosMock)
 
         $(".item-cidade").on('click' , function(item){
             $("#lbl-cidade-escolhida").text(item.target.innerText);
@@ -63,6 +78,36 @@ function preencherListaEmpresas(resultado) {
 
     //Populate dropdown with value
     $("#lista-empresas").html(markup)
+}
+
+function preencherTabelaFuncionarios(resultado) {
+    $("#tabela-profissionais tbody").empty()
+    for (i = 0; i < resultado.length; i++) {
+        var tr = document.createElement('TR');
+        let funcionario = resultado[i];
+        
+        var tdNome = document.createElement('TD')
+        tdNome.appendChild(document.createTextNode(funcionario.nome));
+        tr.appendChild(tdNome)
+
+        var tdPosicao = document.createElement('TD')
+        tdPosicao.appendChild(document.createTextNode(funcionario.posicao));
+        tr.appendChild(tdPosicao)
+
+        var tdSenioridade = document.createElement('TD')
+        tdSenioridade.appendChild(document.createTextNode(funcionario.senioridade));
+        tr.appendChild(tdSenioridade)
+
+        var tdLideraEquipe = document.createElement('TD')
+        tdLideraEquipe.appendChild(document.createTextNode(funcionario.lidera_equipe));
+        tr.appendChild(tdLideraEquipe)
+
+        var tdLinkedin = document.createElement('TD')
+        tdLinkedin.appendChild(document.createTextNode(funcionario.link));
+        tr.appendChild(tdLinkedin)
+        
+        $("#tabela-profissionais tbody").append(tr);
+    }
 }
 
 function exibirAlertaSucesso() {

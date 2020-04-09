@@ -6,7 +6,7 @@
         {
             "_atencao" : "Por motivo de privacidade, devem ser colocados todas estas, e somente estas informações de cada pessoa",
             "nome": "Joao Exemplo",
-            "posição": "DE-2-0",
+            "posicao": "DE-2-0",
             "senioridade": 2,
             "lidera_equipe" : false,
             "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
