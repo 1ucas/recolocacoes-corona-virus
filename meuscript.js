@@ -38,10 +38,15 @@ function carregarTodosDados() {
             "lidera_equipe" : false,
             "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
         }]
+
+        let legendaCargoMock = {
+            "DE-2-0" : "Desenvolvedor Frontend Mock",
+            "AQ-1-1" : "Arquiteto Backend Mock"
+        }
         
         preencherListaCidades(resultadoCidadesMock)
         preencherListaEmpresas(resultadoEmpresasMock)
-        preencherTabelaFuncionarios(resultadoFuncionariosMock)
+        preencherTabelaFuncionarios(resultadoFuncionariosMock, legendaCargoMock)
 
         $(".item-cidade").on('click' , function(item){
             $("#lbl-cidade-escolhida").text(item.target.innerText);
@@ -80,33 +85,71 @@ function preencherListaEmpresas(resultado) {
     $("#lista-empresas").html(markup)
 }
 
-function preencherTabelaFuncionarios(resultado) {
+function preencherTabelaFuncionarios(resultado, legendaCargo) {
     $("#tabela-profissionais tbody").empty()
     for (i = 0; i < resultado.length; i++) {
         var tr = document.createElement('TR');
         let funcionario = resultado[i];
         
-        var tdNome = document.createElement('TD')
+        var tdNome = document.createElement('TD');
         tdNome.appendChild(document.createTextNode(funcionario.nome));
-        tr.appendChild(tdNome)
+        tr.appendChild(tdNome);
 
-        var tdPosicao = document.createElement('TD')
-        tdPosicao.appendChild(document.createTextNode(funcionario.posicao));
-        tr.appendChild(tdPosicao)
+        var funcao = converterCargo(legendaCargo, funcionario.posicao)
+        var tdPosicao = document.createElement('TD');
+        tdPosicao.appendChild(document.createTextNode(funcao));
+        tr.appendChild(tdPosicao);
 
-        var tdSenioridade = document.createElement('TD')
-        tdSenioridade.appendChild(document.createTextNode(funcionario.senioridade));
-        tr.appendChild(tdSenioridade)
+        var senioridade = converterSenioridade(funcionario.senioridade);
+        var tdSenioridade = document.createElement('TD');
+        tdSenioridade.appendChild(document.createTextNode(senioridade));
+        tr.appendChild(tdSenioridade);
 
-        var tdLideraEquipe = document.createElement('TD')
-        tdLideraEquipe.appendChild(document.createTextNode(funcionario.lidera_equipe));
-        tr.appendChild(tdLideraEquipe)
+        var lideraEquipe = funcionario.lidera_equipe ? "SIM" : "NÃO";
+        var tdLideraEquipe = document.createElement('TD');
+        tdLideraEquipe.appendChild(document.createTextNode(lideraEquipe));
+        tr.appendChild(tdLideraEquipe);
 
-        var tdLinkedin = document.createElement('TD')
-        tdLinkedin.appendChild(document.createTextNode(funcionario.link));
-        tr.appendChild(tdLinkedin)
+        var tdLinkedin = document.createElement('TD');
+        var anchorLinkedin = document.createElement('a');
+        anchorLinkedin.appendChild(document.createTextNode(funcionario.link));
+        anchorLinkedin.href = funcionario.link;
+        anchorLinkedin.target = "_blank";
+        anchorLinkedin.rel = "noopener noreferrer";
+        tdLinkedin.appendChild(anchorLinkedin);
+        tr.appendChild(tdLinkedin);
         
         $("#tabela-profissionais tbody").append(tr);
+    }
+}
+
+function converterCargo(legendaCargo, cargo) {
+    var funcao = "N/A"
+    Object.keys(legendaCargo).forEach(key => {
+        if(key == cargo) {
+            funcao = legendaCargo[key];
+        }
+    })
+    return funcao;
+}
+
+function converterSenioridade(senioridade){
+    switch (senioridade) {
+        case 1:
+            return "JUNIOR"
+            break;
+        case 2:
+            return "PLENO"
+            break;
+        case 3:
+            return "SENIOR"
+            break;
+        case 4:
+            return "MASTER / ESPECIALISTA"
+            break;
+        default:
+            return " - ";
+            break;
     }
 }
 

@@ -11,87 +11,97 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <h1>Recolocação Profissionais - CONVID19</h1>
-        <p> Esta é uma página auxiliar para ajudar a ler os dados colocados pelos profissionais </p>
-    </div>
 
-    <div id="alerta-erro" class="alert alert-danger alert-dismissible">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Erro!</strong> Não foi possível carregar os dados.
-    </div>
-
-    <div id="alerta-sucesso" class="alert alert-success alert-dismissible">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Sucesso!</strong> Dados carregados.
-    </div>
-
-    <div class="row">
-        <div class="col-2">
-            <div class="dropdown">
-                <div class="row">
-                    <div class="col-6">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCidadesMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Cidades
-                        </button>
-                        <div id="lista-cidades" class="dropdown-menu" aria-labelledby="dropdownCidadesMenuButton"></div>
-                    </div>
-                    <div class="col-6">
-                        <label id="lbl-cidade-escolhida" for="dropdownCidadesMenuButton"></label>
-                    </div>
-                </div>
-            </div>
+    <div class="container body-container">
+        <div class="container-fluid">
+            <h1>Recolocação Profissionais -> COVID-19</h1>
+            <p> Esta é uma página auxiliar para ajudar a ler os dados colocados pelos profissionais </p>
         </div>
-        <div class="col-2">
-            <div class="dropdown">
-                <div class="row">
-                    <div class="col-6">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownEmpresasMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Empresas
-                        </button>
-                        <div id="lista-empresas" class="dropdown-menu" aria-labelledby="dropdownEmpresasMenuButton">
+
+        <div id="alerta-erro" class="alert alert-danger alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erro!</strong> Não foi possível carregar os dados.
+        </div>
+
+        <div id="alerta-sucesso" class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Sucesso!</strong> Dados carregados.
+        </div>
+
+        <div class="row filter-row">
+            <div class="col-4">
+                <div class="dropdown">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-secondary dropdown-toggle" type="button"
+                                id="dropdownCidadesMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Cidades
+                            </button>
+                            <div id="lista-cidades" class="dropdown-menu" aria-labelledby="dropdownCidadesMenuButton">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label id="lbl-cidade-escolhida" for="dropdownCidadesMenuButton"></label>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <label id="lbl-empresa-escolhida" for="dropdownEmpresasMenuButton"></label>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="dropdown">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-secondary dropdown-toggle" type="button"
+                                id="dropdownEmpresasMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Empresas
+                            </button>
+                            <div id="lista-empresas" class="dropdown-menu" aria-labelledby="dropdownEmpresasMenuButton">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label id="lbl-empresa-escolhida" for="dropdownEmpresasMenuButton"></label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="table-row">
+            <table id="tabela-profissionais" class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Senioridade</th>
+                        <th scope="col">Liderança</th>
+                        <th scope="col">Linkedin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucas</td>
+                        <td>DEV TESTE</td>
+                        <td>JUNIOR</td>
+                        <td>NÃO</td>
+                        <td><a target="_blank" rel="noopener noreferrer"
+                                href="https://www.linkedin.com/in/lucas-ramos-maciel/">https://www.linkedin.com/in/lucas-ramos-maciel/</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+        <script src="meuscript.js"></script>
     </div>
-
-    <table id="tabela-profissionais" class="table">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Cargo</th>
-                <th scope="col">Senioridade</th>
-                <th scope="col">Liderança</th>
-                <th scope="col">Linkedin</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Lucas</td>
-                <td>DEV TESTE</td>
-                <td>JUNIOR</td>
-                <td>NÃO</td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/lucas-ramos-maciel/">https://www.linkedin.com/in/lucas-ramos-maciel/</a></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-
-    <script src="meuscript.js"></script>
 </body>
 
 </html>

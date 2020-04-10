@@ -9,3 +9,15 @@
 #tabela-profissionais {
     display: none;
 }
+
+.body-container {
+    margin: 20px;
+}
+
+.filter-row {
+    margin-top: 20px;
+}
+
+.table-row {
+    margin-top: 25px;
+}
