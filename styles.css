@@ -10,8 +10,8 @@
     display: none;
 }
 
-.body-container {
-    margin: 20px;
+.container-fluid.body-container {
+    padding: 50px;
 }
 
 .filter-row {
