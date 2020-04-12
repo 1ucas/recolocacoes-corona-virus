@@ -2,14 +2,27 @@ $(document).ready(function () {
 
     // Sim pessoal, a programação é em Português porque o objetivo neste momento é sermos o mais inclusivos possível.
     carregarCidades()
+    carregarLegenda()
 
 });
+
+var legenda = {}
+
+function carregarLegenda() {
+    $.getJSON("http://localhost:3000/legenda", function(resultado){
+
+        legenda = resultado;
+
+    })
+    .fail(function() {
+        exibirAlertaError()
+    })
+}
 
 function carregarCidades() {
 
     $.getJSON("http://localhost:3000/cidades", function(resultado){
 
-        exibirAlertaSucesso()
         preencherListaCidades(resultado)
 
         $(".item-cidade").on('click' , function(item){
@@ -38,6 +51,9 @@ function carregarEmpresasPorCidade(cidade) {
         });
 
     })
+    .fail(function() {
+        exibirAlertaError()
+    })
 }
 
 function carregarFuncionariosPorEmpresa(cidade, empresa) {
@@ -45,14 +61,12 @@ function carregarFuncionariosPorEmpresa(cidade, empresa) {
     let urlFormatada = url.replace("{cidade}", cidade).replace("{empresa}", empresa);
     $.getJSON(urlFormatada, function(resultado){
 
-        let legendaCargoMock = {
-            "DE-2-0" : "Desenvolvedor Frontend Mock",
-            "AQ-1-1" : "Arquiteto Backend Mock"
-        }
-
-        preencherTabelaFuncionarios(resultado, legendaCargoMock);
+        preencherTabelaFuncionarios(resultado, legenda);
         $("#tabela-profissionais").show()
         
+    })
+    .fail(function() {
+        exibirAlertaError()
     })
 }
 

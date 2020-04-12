@@ -21,6 +21,12 @@ const listarCidades = function(){
     return list;
 }
 
+const obterLegenda = function() {
+    var informacoesLegenda = fs.readFileSync(`${caminhoRaiz}..//legenda.json`);
+
+    return JSON.parse(informacoesLegenda);
+}
+
 app.get('/funcionarios/cidade/:cidade/empresa/:empresa', function(req, res) {
     const objetoARetornar = listarFuncionarios(req.params.cidade, req.params.empresa);
     console.log(objetoARetornar)
@@ -35,6 +41,12 @@ app.get('/empresas/cidade/:cidade', function(req, res) {
 
 app.get('/cidades', function(req, res) {
     const objetoARetornar = listarCidades();
+    console.log(objetoARetornar)
+    res.send(objetoARetornar);
+});
+
+app.get('/legenda', function(req, res) {
+    const objetoARetornar = obterLegenda();
     console.log(objetoARetornar)
     res.send(objetoARetornar);
 });
