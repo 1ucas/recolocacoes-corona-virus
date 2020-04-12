@@ -21,13 +21,13 @@ const listarCidades = function(){
     return list;
 }
 
-app.get('/cidades/:cidade/:empresa', function(req, res) {
+app.get('/funcionarios/cidade/:cidade/empresa/:empresa', function(req, res) {
     const objetoARetornar = listarFuncionarios(req.params.cidade, req.params.empresa);
     console.log(objetoARetornar)
     res.send(objetoARetornar);
 });
 
-app.get('/cidades/:cidade', function(req, res) {
+app.get('/empresas/cidade/:cidade', function(req, res) {
     const objetoARetornar = listarEmpresas(req.params.cidade);
     console.log(objetoARetornar)
     res.send(objetoARetornar);

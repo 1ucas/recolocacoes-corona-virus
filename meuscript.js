@@ -1,167 +1,58 @@
 $(document).ready(function () {
 
     // Sim pessoal, a programação é em Português porque o objetivo neste momento é sermos o mais inclusivos possível.
-    carregarTodosDados()
+    carregarCidades()
 
 });
 
-function carregarTodosDados() {
+function carregarCidades() {
 
-    $.getJSON("http://localhost:3000/dados", function(resultado){
+    $.getJSON("http://localhost:3000/cidades", function(resultado){
 
         exibirAlertaSucesso()
+        preencherListaCidades(resultado)
+
+        $(".item-cidade").on('click' , function(item){
+            $("#lbl-cidade-escolhida").text(item.target.innerText);
+            $("#lbl-empresa-escolhida").text("");
+            $("#tabela-profissionais").hide();
+            carregarEmpresasPorCidade(item.target.innerText);
+        });
 
     })
     .fail(function() {
-        let resultadoCidadesMock = [{
-            "nome" : "Belo Horizonte"
-        },{
-            "nome" : "São Paulo"
-        }]
+        exibirAlertaError()
+    })
+}
 
-        let resultadoEmpresasMock = [{
-            "nome" : "Empresa X"
-        },{
-            "nome" : "Empresa Y"
-        }]
+function carregarEmpresasPorCidade(cidade) {
+    let url = "http://localhost:3000/empresas/cidade/{cidade}";
+    let urlFormatada = url.replace("{cidade}", cidade);
+    $.getJSON(urlFormatada, function(resultado){
 
-        let resultadoFuncionariosMock = [{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Joao Exemplo",
-            "posicao": "DE-2-0",
-            "senioridade": 2,
-            "lidera_equipe" : true,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        },{
-            "nome": "Lucas Exemplo",
-            "posicao": "AQ-1-1",
-            "senioridade": 2,
-            "lidera_equipe" : false,
-            "link": "https://www.linkedin.com/in/lucas-ramos-maciel/"
-        }]
+        preencherListaEmpresas(resultado)
+
+        $(".item-empresa").on('click' , function(item){
+            $("#lbl-empresa-escolhida").text(item.target.innerText);
+            carregarFuncionariosPorEmpresa(cidade, item.target.innerText);
+        });
+
+    })
+}
+
+function carregarFuncionariosPorEmpresa(cidade, empresa) {
+    let url = "http://localhost:3000/funcionarios/cidade/{cidade}/empresa/{empresa}"
+    let urlFormatada = url.replace("{cidade}", cidade).replace("{empresa}", empresa);
+    $.getJSON(urlFormatada, function(resultado){
 
         let legendaCargoMock = {
             "DE-2-0" : "Desenvolvedor Frontend Mock",
             "AQ-1-1" : "Arquiteto Backend Mock"
         }
+
+        preencherTabelaFuncionarios(resultado, legendaCargoMock);
+        $("#tabela-profissionais").show()
         
-        preencherListaCidades(resultadoCidadesMock)
-        preencherListaEmpresas(resultadoEmpresasMock)
-        preencherTabelaFuncionarios(resultadoFuncionariosMock, legendaCargoMock)
-
-        $(".item-cidade").on('click' , function(item){
-            $("#lbl-cidade-escolhida").text(item.target.innerText);
-            $("#lbl-empresa-escolhida").text("");
-            $("#tabela-profissionais").hide()
-        });
-
-        $(".item-empresa").on('click' , function(item){
-            $("#lbl-empresa-escolhida").text(item.target.innerText);
-            $("#tabela-profissionais").show()
-        });
-
-        exibirAlertaError()
     })
 }
 
@@ -169,7 +60,7 @@ function preencherListaCidades(resultado) {
     var markup = "";
 
     for (var i = 0; i < resultado.length; i++) {
-        markup += '<a class="dropdown-item item-cidade" href="#">' + resultado[i].nome + '</a>';
+        markup += '<a class="dropdown-item item-cidade" href="#">' + resultado[i] + '</a>';
     }
 
     //Populate dropdown with value
@@ -180,7 +71,7 @@ function preencherListaEmpresas(resultado) {
     var markup = "";
 
     for (var i = 0; i < resultado.length; i++) {
-        markup += '<button class="dropdown-item item-empresa">' + resultado[i].nome + '</a>';
+        markup += '<button class="dropdown-item item-empresa">' + resultado[i] + '</a>';
     }
 
     //Populate dropdown with value
