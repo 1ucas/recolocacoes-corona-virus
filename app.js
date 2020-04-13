@@ -2,7 +2,7 @@ var express = require('express');
 const path = require('path');
 const fs = require('fs');
 var app = express();
-const caminhoRaiz = "../dados/";
+const caminhoRaiz = "dados/";
 
 const listarFuncionarios = function(cidade,empresa){
     var informacoesEmpresa = fs.readFileSync(`${caminhoRaiz}//${cidade}//${empresa}//dados.json`);
@@ -58,12 +58,13 @@ app.use(function(req, res, next) {
     next();
   });
 
-app.use(express.static('/..'));
+app.use('/', express.static(__dirname + '/page'));
+app.use(express.static(__dirname + '/page'));
 
-app.get('/page', (req, res) => {
-    console.log(__dirname);
-    res.sendFile(path.resolve(__dirname, '../', 'index.html'));
-});
+// app.get('/', (req, res) => {
+//     console.log(__dirname);
+//     res.sendFile(path.resolve(__dirname, 'page/', 'index.html'));
+// });
 
 app.listen(3000, function () {
   console.log('Local server listening on port 3000!');
