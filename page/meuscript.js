@@ -9,7 +9,7 @@ $(document).ready(function () {
 var legenda = {}
 
 function carregarLegenda() {
-    $.getJSON("http://localhost:3000/legenda", function(resultado){
+    $.getJSON("/legenda", function(resultado){
 
         legenda = resultado;
 
@@ -21,7 +21,7 @@ function carregarLegenda() {
 
 function carregarCidades() {
 
-    $.getJSON("http://localhost:3000/cidades", function(resultado){
+    $.getJSON("/cidades", function(resultado){
 
         preencherListaCidades(resultado)
 
@@ -39,7 +39,7 @@ function carregarCidades() {
 }
 
 function carregarEmpresasPorCidade(cidade) {
-    let url = "http://localhost:3000/empresas/cidade/{cidade}";
+    let url = "/empresas/cidade/{cidade}";
     let urlFormatada = url.replace("{cidade}", cidade);
     $.getJSON(urlFormatada, function(resultado){
 
@@ -57,7 +57,7 @@ function carregarEmpresasPorCidade(cidade) {
 }
 
 function carregarFuncionariosPorEmpresa(cidade, empresa) {
-    let url = "http://localhost:3000/funcionarios/cidade/{cidade}/empresa/{empresa}"
+    let url = "/funcionarios/cidade/{cidade}/empresa/{empresa}"
     let urlFormatada = url.replace("{cidade}", cidade).replace("{empresa}", empresa);
     $.getJSON(urlFormatada, function(resultado){
 
