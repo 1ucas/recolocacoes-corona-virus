@@ -59,7 +59,7 @@ Após rodar o arquivo, seu navegador terá sido aberto e também uma janela do T
 
 Atualize a aba do navegador e tudo já estará funcionando.
 
-⚠️ **IMPORTANTE** - Não feche a janela do Terminal / Commmand que foi aberta enquanto você estiver fazendo as consultas.
+⚠️ **IMPORTANTE** - Enquanto você estiver fazendo as consultas, não feche a janela do Terminal / Commmand.
 
 
 ## Como posso contribuir?
