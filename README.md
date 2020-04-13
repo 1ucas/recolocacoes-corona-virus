@@ -96,5 +96,5 @@ Qualquer dúvida, agradecimento e sugestão, criem issues com o devido *Label*.
 Assim que possível, prometo respondê-las.
 
 
-*Desde já agradeço a todos que contribuírem. 
+*Desde já agradeço à todos que contribuírem. 
 Acredito que cada um pode fazer a sua parte na construção de um mundo melhor.*
