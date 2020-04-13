@@ -47,7 +47,9 @@ https://nodejs.org/en/download/
 
 Após a instalação, de acordo com o seu sistema operacional, rode o arquivo: 
 
+```
 start-server-(seu sistema)
+```
 
 Após rodar o arquivo, seu navegador terá sido aberto e também uma janela do Terminal (MacOS) ou Prompt de Comando (Windows).
 
