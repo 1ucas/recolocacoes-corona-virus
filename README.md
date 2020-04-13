@@ -1,5 +1,9 @@
 # Recolocações Corona - 2020
-Repositório para ajudar na recolocação de profissionais de TI que sofreram com os cortes causados pelo Coronavírus!
+O vírus chegou. E com ele veio a crise de diversos setores do Brasil.
+
+A primeira consequência que vimos foi o desligamento de uma série de colegas em várias empresas.
+
+Pensando nesse cenário foi criado esse repositório para ajudar na recolocação de profissionais de TI que sofreram com os cortes causados pelo Coronavírus!
 
 *Mesmo que você já tenha uma experiência em Node.js e consiga rodar o projeto, leia as informações abaixo antes de continuar.*
 
@@ -60,7 +64,14 @@ Atualize a aba do navegador e tudo já estará funcionando.
 
 ## Como posso contribuir?
 
-* O repositório é de vocês! As contribuições podem ser feitas por qualquer um através de pull requests
+O repositório é de vocês! As contribuições podem ser feitas por qualquer um através de pull requests!
+
+Desde melhorias técnicas e visuais até correções no português, neste momento qualquer ajuda é bem-vinda.
+
+### Inclusão de novas informações
+
+Para inclusão de novas informações de pessoas, siga o passo-a-passo abaixo:
+
 * Inclua as pastas de sua Cidade e/ou Empresa se ainda não houver
 * Inclua o arquivo dados.json (exatamente com esse nome) dentro da pasta de sua empresa, se ainda não houver
 * Se você for uma pessoa física, inclua as suas (e somente suas) informaçõoes na lista de profissionais 
