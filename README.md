@@ -64,6 +64,7 @@ Atualize a aba do navegador e tudo já estará funcionando.
 * Se você for uma pessoa física, inclua as suas (e somente suas) informaçõoes na lista de profissionais 
 * Se você for do RH e desejar incluir de uma vez a lista de todos profissionais desligados, por favor coloque alguma referência, perfil do linkedin, email, para que possamos averiguar a veracidade da fonte
 * O cargos dos profissionais devem ser colocados conforme o arquivo LEGENDA.JSON que está da pasta principal do projeto.
+* **Não suba nenhum dado sensível seu ou de um profissional, como CPF, email pessoal e endereço.**
 
 Em caso de dúvidas, você pode consultar como exemplo o arquivo abaixo:
 
@@ -72,10 +73,10 @@ https://github.com/1ucas/recolocacoes-corona-virus/blob/master/dados/Belo%20Hori
 
 
 ## Manual de boas práticas
-* Foi realocado? (EBA!) Suba um Pull Request com uma mensagem bem bacana e removendo seus dados!
+* Foi realocado? (EBA!) Suba um Pull Request com uma mensagem bem bacana e removendo suas informações!
 
 
-### Agradecimentos, Dúvidas e Sugestões
+## Agradecimentos, Dúvidas e Sugestões
 
 Qualquer dúvida, agradecimento e sugestão, criem issues com o devido *Label*.
 
