@@ -1,4 +1,5 @@
 var express = require('express');
+const path = require('path');
 const fs = require('fs');
 var app = express();
 const caminhoRaiz = "../dados/";
@@ -56,6 +57,13 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
+
+app.use(express.static('/..'));
+
+app.get('/page', (req, res) => {
+    console.log(__dirname);
+    res.sendFile(path.resolve(__dirname, '../', 'index.html'));
+});
 
 app.listen(3000, function () {
   console.log('Local server listening on port 3000!');
