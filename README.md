@@ -26,8 +26,21 @@ Pensando nesse cenário foi criado esse repositório para ajudar na recolocaçã
 
 Existem duas formas de consultar os dados. 
 
+1. Através do site publicado com base nesse repositório
 1. De forma manual
-1. Através da ferramenta de leitura através de seu navegador
+1. Através da ferramenta de leitura usando seu navegador
+
+### Site do repositório
+
+Para uma consulta mais simples, basta clicar [clicar aqui](https://recolocacoes-corona.herokuapp.com/) ou entrar em:
+
+```
+https://recolocacoes-corona.herokuapp.com/
+```
+
+Não se preocupe. O site é automaticamente atualizado com os novos dados inseridos aqui.
+
+Quando quiser os dados mais atualizados, basta recarregar a aba aberta.
 
 ### Leitura manual
 
