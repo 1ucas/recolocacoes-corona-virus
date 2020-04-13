@@ -69,5 +69,5 @@ app.use(express.static(__dirname + '/page'));
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function () {
-  console.log('Local server listening on port 80!');
+  console.log(`Local server listening on port ${port}!`);
 });
