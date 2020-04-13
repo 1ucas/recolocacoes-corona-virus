@@ -9,12 +9,12 @@ $(document).ready(function () {
 var legenda = {}
 
 function handleSearchButton() {
-    if ($("#lbl-empresa-escolhida").text() != "" && $("#lbl-cidade-escolhida").text() != "")
-        $("#search-button").prop("disabled", false);
-    else {
+    if ($("#lbl-empresa-escolhida").text() != "" && $("#lbl-cidade-escolhida").text() != "") {
         initSearch();
-        $("#search-button").prop("disabled", true);
+        $("#search-button").prop("disabled", false);
     }
+    else
+        $("#search-button").prop("disabled", true);
 }
 
 function initSearch() {
