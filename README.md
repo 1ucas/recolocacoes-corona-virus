@@ -87,7 +87,7 @@ Para inclusão de novas informações de pessoas, siga o passo-a-passo abaixo:
 
 * Inclua as pastas de sua Cidade e/ou Empresa se ainda não houver
 * Inclua o arquivo dados.json (exatamente com esse nome) dentro da pasta de sua empresa, se ainda não houver
-* Se você for uma pessoa física, inclua as suas (e somente suas) informaçõoes na lista de profissionais 
+* Se você for uma pessoa física, inclua as suas informaçõoes (ou de um colega, se o mesmo tiver concordado) na lista de profissionais 
 * Se você for do RH e desejar incluir de uma vez a lista de todos profissionais desligados, por favor coloque alguma referência, perfil do linkedin, email, para que possamos averiguar a veracidade da fonte
 * O cargos dos profissionais devem ser colocados conforme o arquivo LEGENDA.JSON que está da pasta principal do projeto.
 * **Não suba nenhum dado sensível seu ou de um profissional, como CPF, email pessoal e endereço.**
