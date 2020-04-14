@@ -66,8 +66,8 @@ app.use(express.static(__dirname + '/page'));
 //     res.sendFile(path.resolve(__dirname, 'page/', 'index.html'));
 // });
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.listen(PORT, function () {
-  console.log('Local server listening on port 80!');
+app.listen(port, function () {
+  console.log(`Local server listening on port ${port}!`);
 });

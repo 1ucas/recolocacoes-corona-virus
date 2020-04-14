@@ -1,73 +1,93 @@
 $(document).ready(function () {
 
     // Sim pessoal, a programação é em Português porque o objetivo neste momento é sermos o mais inclusivos possível.
-    carregarCidades()
-    carregarLegenda()
-
+    carregarCidades();
+    carregarLegenda();
+    tratarBotaoBusca();
 });
 
 var legenda = {}
 
+function tratarBotaoBusca() {
+    if ($("#lbl-empresa-escolhida").text() != "" && $("#lbl-cidade-escolhida").text() != "") {
+        initSearch();
+        $("#search-button").prop("disabled", false);
+    }
+    else
+        $("#search-button").prop("disabled", true);
+}
+
+function initSearch() {
+    $("#search-button").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#tabela-profissionais-tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+}
+
 function carregarLegenda() {
-    $.getJSON("/legenda", function(resultado){
+    $.getJSON("/legenda", function (resultado) {
 
         legenda = resultado;
 
     })
-    .fail(function() {
-        exibirAlertaError()
-    })
+        .fail(function () {
+            exibirAlertaError()
+        })
 }
 
 function carregarCidades() {
 
-    $.getJSON("/cidades", function(resultado){
+    $.getJSON("/cidades", function (resultado) {
 
         preencherListaCidades(resultado)
 
-        $(".item-cidade").on('click' , function(item){
+        $(".item-cidade").on('click', function (item) {
             $("#lbl-cidade-escolhida").text(item.target.innerText);
             $("#lbl-empresa-escolhida").text("");
+            tratarBotaoBusca();
             $("#tabela-profissionais").hide();
             carregarEmpresasPorCidade(item.target.innerText);
         });
 
     })
-    .fail(function() {
-        exibirAlertaError()
-    })
+        .fail(function () {
+            exibirAlertaError()
+        })
 }
 
 function carregarEmpresasPorCidade(cidade) {
     let url = "/empresas/cidade/{cidade}";
     let urlFormatada = url.replace("{cidade}", cidade);
-    $.getJSON(urlFormatada, function(resultado){
+    $.getJSON(urlFormatada, function (resultado) {
 
         preencherListaEmpresas(resultado)
 
-        $(".item-empresa").on('click' , function(item){
+        $(".item-empresa").on('click', function (item) {
             $("#lbl-empresa-escolhida").text(item.target.innerText);
+            tratarBotaoBusca();
             carregarFuncionariosPorEmpresa(cidade, item.target.innerText);
         });
 
     })
-    .fail(function() {
-        exibirAlertaError()
-    })
+        .fail(function () {
+            exibirAlertaError()
+        })
 }
 
 function carregarFuncionariosPorEmpresa(cidade, empresa) {
     let url = "/funcionarios/cidade/{cidade}/empresa/{empresa}"
     let urlFormatada = url.replace("{cidade}", cidade).replace("{empresa}", empresa);
-    $.getJSON(urlFormatada, function(resultado){
+    $.getJSON(urlFormatada, function (resultado) {
 
         preencherTabelaFuncionarios(resultado, legenda);
         $("#tabela-profissionais").show()
-        
+
     })
-    .fail(function() {
-        exibirAlertaError()
-    })
+        .fail(function () {
+            exibirAlertaError()
+        })
 }
 
 function preencherListaCidades(resultado) {
@@ -97,7 +117,7 @@ function preencherTabelaFuncionarios(resultado, legendaCargo) {
     for (i = 0; i < resultado.length; i++) {
         var tr = document.createElement('TR');
         let funcionario = resultado[i];
-        
+
         var tdNome = document.createElement('TD');
         tdNome.appendChild(document.createTextNode(funcionario.nome));
         tr.appendChild(tdNome);
@@ -125,7 +145,7 @@ function preencherTabelaFuncionarios(resultado, legendaCargo) {
         anchorLinkedin.rel = "noopener noreferrer";
         tdLinkedin.appendChild(anchorLinkedin);
         tr.appendChild(tdLinkedin);
-        
+
         $("#tabela-profissionais tbody").append(tr);
     }
 }
@@ -133,14 +153,14 @@ function preencherTabelaFuncionarios(resultado, legendaCargo) {
 function converterCargo(legendaCargo, cargo) {
     var funcao = "N/A"
     Object.keys(legendaCargo).forEach(key => {
-        if(key == cargo) {
+        if (key == cargo) {
             funcao = legendaCargo[key];
         }
     })
     return funcao;
 }
 
-function converterSenioridade(senioridade){
+function converterSenioridade(senioridade) {
     switch (senioridade) {
         case 1:
             return "JUNIOR"
