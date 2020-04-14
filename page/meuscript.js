@@ -3,12 +3,12 @@ $(document).ready(function () {
     // Sim pessoal, a programação é em Português porque o objetivo neste momento é sermos o mais inclusivos possível.
     carregarCidades();
     carregarLegenda();
-    handleSearchButton();
+    tratarBotaoBusca();
 });
 
 var legenda = {}
 
-function handleSearchButton() {
+function tratarBotaoBusca() {
     if ($("#lbl-empresa-escolhida").text() != "" && $("#lbl-cidade-escolhida").text() != "") {
         initSearch();
         $("#search-button").prop("disabled", false);
@@ -45,8 +45,8 @@ function carregarCidades() {
 
         $(".item-cidade").on('click', function (item) {
             $("#lbl-cidade-escolhida").text(item.target.innerText);
-            handleSearchButton();
             $("#lbl-empresa-escolhida").text("");
+            tratarBotaoBusca();
             $("#tabela-profissionais").hide();
             carregarEmpresasPorCidade(item.target.innerText);
         });
@@ -66,7 +66,7 @@ function carregarEmpresasPorCidade(cidade) {
 
         $(".item-empresa").on('click', function (item) {
             $("#lbl-empresa-escolhida").text(item.target.innerText);
-            handleSearchButton();
+            tratarBotaoBusca();
             carregarFuncionariosPorEmpresa(cidade, item.target.innerText);
         });
 
